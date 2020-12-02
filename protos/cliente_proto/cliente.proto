@@ -10,6 +10,7 @@ service ClienteController {
     rpc Retrieve(Cliente) returns (Cliente) {}
     rpc Update(Cliente) returns (Cliente) {}
     rpc Destroy(Cliente) returns (google.protobuf.Empty) {}
+    rpc ReplyString(HelloReply) returns (HelloReply) {}
 }
 
 message Cliente {
@@ -18,4 +19,8 @@ message Cliente {
     string sobrenome = 3;
     string cpf = 4;
     string sexo = 5;
+}
+
+message HelloReply {
+    string message = 1;
 }

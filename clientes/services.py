@@ -2,7 +2,7 @@ import grpc
 from google.protobuf import empty_pb2
 from django_grpc_framework.services import Service
 from clientes.models import Cliente
-from clientes.serializers import ClienteProtoSerializer
+from clientes.serializers import ClienteProtoSerializer, ReplyStringSerializer
 
 
 class ClienteService(Service):
@@ -12,6 +12,13 @@ class ClienteService(Service):
         serializer = ClienteProtoSerializer(clientes, many=True)
         for msg in serializer.message:
             yield msg
+
+    def ReplyString(self, request, context):
+        print(request.message)
+        serializer = ReplyStringSerializer(message=request)
+        serializer.is_valid(raise_exception=True)
+        print(serializer.message)
+        return serializer.message
 
     def Create(self, request, context):
         serializer = ClienteProtoSerializer(message=request)

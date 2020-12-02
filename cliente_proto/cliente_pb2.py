@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x63liente_proto/cliente.proto\x12\x07\x63liente\x1a\x1bgoogle/protobuf/empty.proto\"Y\n\x07\x43liente\x12\x12\n\ncd_cliente\x18\x01 \x01(\t\x12\x0c\n\x04nome\x18\x02 \x01(\t\x12\x11\n\tsobrenome\x18\x03 \x01(\t\x12\x0b\n\x03\x63pf\x18\x04 \x01(\t\x12\x0c\n\x04sexo\x18\x05 \x01(\t2\x8c\x02\n\x11\x43lienteController\x12.\n\x04List\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x30\x01\x12.\n\x06\x43reate\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12\x30\n\x08Retrieve\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12.\n\x06Update\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12\x35\n\x07\x44\x65stroy\x12\x10.cliente.Cliente\x1a\x16.google.protobuf.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x1b\x63liente_proto/cliente.proto\x12\x07\x63liente\x1a\x1bgoogle/protobuf/empty.proto\"Y\n\x07\x43liente\x12\x12\n\ncd_cliente\x18\x01 \x01(\t\x12\x0c\n\x04nome\x18\x02 \x01(\t\x12\x11\n\tsobrenome\x18\x03 \x01(\t\x12\x0b\n\x03\x63pf\x18\x04 \x01(\t\x12\x0c\n\x04sexo\x18\x05 \x01(\t\"\x1d\n\nHelloReply\x12\x0f\n\x07message\x18\x01 \x01(\t2\xc7\x02\n\x11\x43lienteController\x12.\n\x04List\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x30\x01\x12.\n\x06\x43reate\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12\x30\n\x08Retrieve\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12.\n\x06Update\x12\x10.cliente.Cliente\x1a\x10.cliente.Cliente\"\x00\x12\x35\n\x07\x44\x65stroy\x12\x10.cliente.Cliente\x1a\x16.google.protobuf.Empty\"\x00\x12\x39\n\x0bReplyString\x12\x13.cliente.HelloReply\x1a\x13.cliente.HelloReply\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -86,7 +86,40 @@ _CLIENTE = _descriptor.Descriptor(
   serialized_end=158,
 )
 
+
+_HELLOREPLY = _descriptor.Descriptor(
+  name='HelloReply',
+  full_name='cliente.HelloReply',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='message', full_name='cliente.HelloReply.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=160,
+  serialized_end=189,
+)
+
 DESCRIPTOR.message_types_by_name['Cliente'] = _CLIENTE
+DESCRIPTOR.message_types_by_name['HelloReply'] = _HELLOREPLY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Cliente = _reflection.GeneratedProtocolMessageType('Cliente', (_message.Message,), {
@@ -95,6 +128,13 @@ Cliente = _reflection.GeneratedProtocolMessageType('Cliente', (_message.Message,
   # @@protoc_insertion_point(class_scope:cliente.Cliente)
   })
 _sym_db.RegisterMessage(Cliente)
+
+HelloReply = _reflection.GeneratedProtocolMessageType('HelloReply', (_message.Message,), {
+  'DESCRIPTOR' : _HELLOREPLY,
+  '__module__' : 'cliente_proto.cliente_pb2'
+  # @@protoc_insertion_point(class_scope:cliente.HelloReply)
+  })
+_sym_db.RegisterMessage(HelloReply)
 
 
 
@@ -105,8 +145,8 @@ _CLIENTECONTROLLER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=161,
-  serialized_end=429,
+  serialized_start=192,
+  serialized_end=519,
   methods=[
   _descriptor.MethodDescriptor(
     name='List',
@@ -155,6 +195,16 @@ _CLIENTECONTROLLER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CLIENTE,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ReplyString',
+    full_name='cliente.ClienteController.ReplyString',
+    index=5,
+    containing_service=None,
+    input_type=_HELLOREPLY,
+    output_type=_HELLOREPLY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
