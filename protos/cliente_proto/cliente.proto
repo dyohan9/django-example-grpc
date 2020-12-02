@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package cliente;
+
+import "google/protobuf/empty.proto";
+
+service ClienteController {
+    rpc List(Cliente) returns (stream Cliente) {}
+    rpc Create(Cliente) returns (Cliente) {}
+    rpc Retrieve(Cliente) returns (Cliente) {}
+    rpc Update(Cliente) returns (Cliente) {}
+    rpc Destroy(Cliente) returns (google.protobuf.Empty) {}
+}
+
+message Cliente {
+    string cd_cliente = 1;
+    string nome = 2;
+    string sobrenome = 3;
+    string cpf = 4;
+    string sexo = 5;
+}
